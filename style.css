@@ -71,3 +71,24 @@ nav a:hover {
   margin-bottom: 25px;
   border-left: 5px solid #3b82f6;
 }
+.about-container {
+  display: flex;
+  align-items: center;
+  gap: 40px;
+  flex-wrap: wrap;
+}
+
+.profile-pic {
+  width: 260px;
+  border-radius: 12px;
+  transition: transform 0.3s ease, box-shadow 0.3s ease;
+}
+
+.profile-pic:hover {
+  transform: scale(1.05);
+  box-shadow: 0 10px 30px rgba(0,0,0,0.6);
+}
+
+.about-text {
+  flex: 1;
+}
