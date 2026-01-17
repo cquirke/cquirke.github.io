@@ -1,0 +1,73 @@
+body {
+  margin: 0;
+  font-family: "Segoe UI", Arial, sans-serif;
+  background-color: #0b0f1a;
+  color: #e5e7eb;
+}
+
+nav {
+  position: fixed;
+  width: 100%;
+  top: 0;
+  background: rgba(0,0,0,0.7);
+  display: flex;
+  justify-content: center;
+  gap: 30px;
+  padding: 15px;
+  z-index: 10;
+}
+
+nav a {
+  color: #ffffff;
+  text-decoration: none;
+  font-weight: 600;
+  letter-spacing: 1px;
+}
+
+nav a:hover {
+  color: #60a5fa;
+}
+
+.hero {
+  height: 100vh;
+  background: url("assets/rocket.jpg") center/cover no-repeat;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  text-align: center;
+}
+
+.hero h1 {
+  font-size: 4rem;
+  margin: 0;
+}
+
+.hero p {
+  font-size: 1.3rem;
+  max-width: 700px;
+  margin: 20px auto;
+}
+
+.hero .buttons a {
+  display: inline-block;
+  margin: 10px;
+  padding: 14px 28px;
+  background: #2563eb;
+  color: white;
+  text-decoration: none;
+  border-radius: 6px;
+}
+
+.section {
+  max-width: 1000px;
+  margin: auto;
+  padding: 80px 20px;
+}
+
+.project {
+  background: #111827;
+  padding: 25px;
+  border-radius: 10px;
+  margin-bottom: 25px;
+  border-left: 5px solid #3b82f6;
+}
