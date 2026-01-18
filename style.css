@@ -150,43 +150,14 @@ nav a:hover {
   .section {
     padding: 60px 15px;
   }
-.media-grid {
-  display: grid;
-  grid-template-columns: repeat(auto-fit, minmax(260px, 1fr));
-  gap: 25px;
-  margin-top: 40px;
-}
+/* ===== Collage Gallery ===== */
 
-.media-item {
-  background: #0f172a;
-  border-radius: 12px;
-  overflow: hidden;
-  text-align: center;
-  transition: transform 0.3s ease, box-shadow 0.3s ease;
-}
-
-.media-item:hover {
-  transform: scale(1.03);
-  box-shadow: 0 15px 40px rgba(0,0,0,0.6);
-}
-
-.media-item img {
-  width: 100%;
-  height: 220px;
-  object-fit: cover;
-}
-
-.media-item p {
-  padding: 12px;
-  font-weight: 600;
-  color: #e5e7eb;
-}
 .collage {
   display: grid;
-  grid-template-columns: repeat(auto-fit, minmax(220px, 1fr));
-  grid-auto-rows: 180px;
-  gap: 15px;
-  max-width: 900px;
+  grid-template-columns: repeat(auto-fit, minmax(180px, 1fr));
+  grid-auto-rows: 160px;
+  gap: 14px;
+  max-width: 720px;   /* Makes it smaller on desktop */
   margin: 40px auto;
 }
 
@@ -201,11 +172,18 @@ nav a:hover {
   width: 100%;
   height: 100%;
   object-fit: cover;
-  transition: transform 0.4s ease;
+  transition: transform 0.35s ease;
 }
 
-.collage-item:hover img {
-  transform: scale(1.08);
+/* Desktop hover effect */
+@media (hover: hover) {
+  .collage-item:hover img {
+    transform: scale(1.08);
+  }
+
+  .collage-item:hover .overlay {
+    opacity: 1;
+  }
 }
 
 .collage-item .overlay {
@@ -219,16 +197,12 @@ nav a:hover {
   align-items: center;
   text-align: center;
   opacity: 0;
-  padding: 16px;
-  transition: opacity 0.4s ease;
-  font-size: 0.9rem;
+  padding: 14px;
+  font-size: 0.85rem;
+  transition: opacity 0.35s ease;
 }
 
-.collage-item:hover .overlay {
-  opacity: 1;
-}
-
-/* Optional size variations */
+/* Size variations */
 .collage-item.tall {
   grid-row: span 2;
 }
@@ -237,11 +211,11 @@ nav a:hover {
   grid-column: span 2;
 }
 
-/* Mobile */
+/* Mobile: tap-style (overlay always visible) */
 @media (max-width: 768px) {
   .collage {
     grid-template-columns: repeat(2, 1fr);
-    grid-auto-rows: 160px;
+    grid-auto-rows: 150px;
   }
 
   .collage-item .overlay {
