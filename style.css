@@ -150,80 +150,71 @@ nav a:hover {
   .section {
     padding: 60px 15px;
   }
-/* ===== Collage Gallery ===== */
 
-.collage {
+/* Collage in Media */
+.media-gallery {
   display: grid;
-  grid-template-columns: repeat(auto-fit, minmax(180px, 1fr));
-  grid-auto-rows: 160px;
-  gap: 14px;
-  max-width: 100px;   /* Makes it smaller on desktop */
-  margin: 40px auto;
+  grid-template-columns: repeat(auto-fit, minmax(250px, 1fr));
+  gap: 16px;
+  padding: 40px;
 }
 
-.collage-item {
+.media-item {
   position: relative;
   overflow: hidden;
   border-radius: 12px;
   cursor: pointer;
 }
 
-.collage-item img {
+.media-item img {
   width: 100%;
   height: 100%;
   object-fit: cover;
-  transition: transform 0.35s ease;
+  display: block;
+  transition: transform 0.4s ease;
 }
 
-/* Desktop hover effect */
-@media (hover: hover) {
-  .collage-item:hover img {
-    transform: scale(1.08);
-  }
-
-  .collage-item:hover .overlay {
-    opacity: 1;
-  }
-}
-
-.collage-item .overlay {
+/* Overlay */
+.overlay {
   position: absolute;
   inset: 0;
-  background: rgba(2, 6, 23, 0.85);
-  color: #e5e7eb;
+  background: rgba(0, 0, 0, 0.75);
+  color: white;
   display: flex;
   flex-direction: column;
   justify-content: center;
   align-items: center;
   text-align: center;
+  padding: 20px;
   opacity: 0;
-  padding: 14px;
-  font-size: 0.85rem;
-  transition: opacity 0.35s ease;
+  transition: opacity 0.3s ease;
 }
 
-/* Size variations */
-.collage-item.tall {
-  grid-row: span 2;
+.overlay h3 {
+  font-size: 1.2rem;
+  margin-bottom: 8px;
 }
 
-.collage-item.wide {
-  grid-column: span 2;
+.overlay p {
+  font-size: 0.95rem;
+  line-height: 1.4;
 }
 
-/* Mobile: tap-style (overlay always visible) */
-@media (max-width: 768px) {
-  .collage {
-    grid-template-columns: repeat(2, 1fr);
-    grid-auto-rows: 150px;
+/* Desktop Hover */
+@media (hover: hover) {
+  .media-item:hover img {
+    transform: scale(1.1);
   }
 
-  .collage-item .overlay {
+  .media-item:hover .overlay {
     opacity: 1;
-    background: rgba(2, 6, 23, 0.7);
   }
 }
-.collage-wrapper {
-  max-width: 700px;
-  margin: 0 auto;
+
+/* Mobile Tap */
+@media (hover: none) {
+  .media-item:active .overlay,
+  .media-item:focus-within .overlay {
+    opacity: 1;
+  }
 }
