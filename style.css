@@ -153,12 +153,19 @@ nav a:hover {
 }
 
 /* Collage in Media */
+
+html, body {
+  overflow-x: hidden;
+  width: 100%;
+}
+
 .media-gallery {
   column-count: 3;
   column-gap: 16px;
   padding: 20px;
-  max-width: 1200px;
+  max-width: 1000px;   /* Match .section width */
   margin: 0 auto;
+  box-sizing: border-box;
 }
 
 @media (max-width: 900px) {
@@ -184,9 +191,9 @@ nav a:hover {
 
 .media-item img {
   width: 100%;
+  max-width: 100%;
   height: auto;
   display: block;
-  object-fit: cover;
 }
 
 /* Overlay */
