@@ -2,6 +2,7 @@
 Collin Quirke
 <br>Mechanical Engineering Student | Senior Casing Engineer
 <br>[LinkedIn](www.linkedin.com/in/quirke-collin)
+<br>[Portfolio](https://cquirke.github.io/)
 <br>(540) 877-5366 | cjquirke@liberty.edu
 
 ## About Me
