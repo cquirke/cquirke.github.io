@@ -631,3 +631,50 @@ a.contact-card:hover {
     height: 220px;
   }
 }
+
+/* Engineering Overrides for Deep Tech Aesthetics */
+.project-view-title {
+  font-size: 2.8rem;
+  font-weight: 700;
+  letter-spacing: -0.02em;
+  color: #ffffff;
+}
+
+.specs-grid {
+  margin-top: 20px;
+  border-top: 1px solid #1e293b;
+  padding-top: 20px;
+}
+
+.spec-tile {
+  background: #0f172a;
+  border-left: 3px solid #3b82f6; /* Accent block tagging */
+}
+
+/* Fixes the flex layout for horizontal scrolling */
+.carousel-track {
+  display: flex;
+  gap: 20px;
+  overflow-x: auto;
+  white-space: nowrap;
+  padding-bottom: 15px;
+  -webkit-overflow-scrolling: touch;
+}
+
+.carousel-slide {
+  flex: 0 0 500px; /* Maintains explicit sizing inside flex container */
+  max-width: 85vw;
+}
+
+.body-card {
+  background: #0f172a;
+  border: 1px solid #1e293b;
+  box-shadow: inset 0 1px 0 rgba(255,255,255,0.05);
+}
+
+.body-card h3 {
+  font-family: monospace;
+  font-size: 1.1rem;
+  letter-spacing: 1px;
+  color: #60a5fa;
+}
