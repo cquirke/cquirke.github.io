@@ -200,43 +200,39 @@
         <p>${block.body}</p>
       </div>
     `).join('');
-    
+
     contentArea.innerHTML = `
-      <div class="detail-header-block">
-        <h1 class="system-title">${data.title}</h1>
-        <p class="system-subtitle">${data.subtitle} &mdash; <span class="accent-text">${data.timeline}</span></p>
+      <div class="project-view-header">
+        <h1 class="project-view-title">${data.title}</h1>
+        <p class="project-view-subtitle">${data.subtitle} &mdash; <span>${data.timeline}</span></p>
       </div>
 
-      <div class="param-matrix">
+      <div class="specs-grid">
         ${specsHtml}
       </div>
 
-      <div class="documentation-gallery-wrapper">
-        <div class="gallery-scroll-track">
+      <div class="carousel-container">
+        <div class="carousel-track">
           ${imagesHtml}
         </div>
-        <div class="gallery-scroll-indicator">Swipe or scroll horizontally to inspect documentation sequence &rarr;</div>
+        <div class="carousel-hint">Swipe or scroll horizontally to inspect documentation sequence &rarr;</div>
       </div>
 
-      <div class="system-documentation-layout">
-        <div class="mission-statement-card">
-          <h4>SYSTEM MISSION SPECIFICATION & OBJECTIVES</h4>
+      <div class="project-view-body">
+        <div class="body-card">
+          <h3>SYSTEM MISSION SPECIFICATION & OBJECTIVES</h3>
           <p>${data.problemStatement}</p>
         </div>
 
-        <div class="blueprints-stack">
-          <h4>ENGINEERING ANALYSIS & ARCHITECTURAL IMPLEMENTATION</h4>
-          ${breakdownHtml}
-        </div>
+        ${breakdownHtml}
       </div>
 
-      <div class="footer-action-panel">
-        <a href="${data.github}" target="_blank" class="github-engineering-btn">
+      <div class="action-footer">
+        <a href="${data.github}" target="_blank" class="repo-action-btn">
           Access Full Source Repository & Verification Files
         </a>
       </div>
     `;
-
     gridView.style.display = 'none';
     windowView.classList.remove('hidden');
     window.scrollTo({ top: 0, behavior: 'smooth' });
