@@ -378,45 +378,55 @@ html, body {
   background: #1d4ed8;
 }
 
-/* Contact Page Specific Styles */
+/* ==========================================
+   CLEAN CONTACT HUB STYLES
+   ========================================== */
+
 .contact-container {
   max-width: 800px;
   margin: 0 auto;
 }
 
 .contact-intro {
-  color: #94a3b8;
+  color: #94a3b8 !important;
   font-size: 1.1rem;
   line-height: 1.6;
   margin-bottom: 40px;
 }
 
+/* Force the grid to form columns */
 .contact-methods {
-  display: grid;
-  grid-template-columns: repeat(auto-fit, minmax(280px, 1fr));
-  gap: 20px;
+  display: grid !important;
+  grid-template-columns: repeat(auto-fit, minmax(280px, 1fr)) !important;
+  gap: 20px !important;
+  margin-top: 30px;
 }
 
-.contact-card {
-  display: flex;
-  align-items: center;
-  background: #0f172a;
-  border: 1px solid #1e293b;
-  border-left: 4px solid #3b82f6;
-  border-radius: 10px;
-  padding: 20px;
-  text-decoration: none;
-  color: #e5e7eb;
-  transition: transform 0.2s ease, background 0.2s ease, border-color 0.2s ease;
+/* Base style for the clickable cards */
+a.contact-card, 
+a.contact-card:link, 
+a.contact-card:visited {
+  display: flex !important;
+  align-items: center !important;
+  background: #0f172a !important;
+  border: 1px solid #1e293b !important;
+  border-left: 5px solid #3b82f6 !important;
+  border-radius: 12px !important;
+  padding: 22px !important;
+  text-decoration: none !important;
+  color: #e5e7eb !important;
+  transition: transform 0.2s ease, background 0.2s ease, border-color 0.2s ease, box-shadow 0.2s ease;
 }
 
-.contact-card:hover {
-  transform: translateY(-3px);
-  background: #1e293b;
-  border-left-color: #60a5fa;
-  box-shadow: 0 10px 25px rgba(0,0,0,0.4);
+/* Smooth hover animations */
+a.contact-card:hover {
+  transform: translateY(-4px) !important;
+  background: #1e293b !important;
+  border-left-color: #60a5fa !important;
+  box-shadow: 0 15px 30px rgba(0, 0, 0, 0.5) !important;
 }
 
+/* Emojis / Icons alignment */
 .contact-icon {
   font-size: 2rem;
   margin-right: 20px;
@@ -425,15 +435,23 @@ html, body {
   text-align: center;
 }
 
-.contact-info h3 {
-  margin: 0 0 4px 0;
-  font-size: 1.1rem;
-  color: #ffffff;
+.contact-info {
+  display: flex;
+  flex-direction: column;
 }
 
+/* Strip default link styling inside the headers */
+.contact-info h3 {
+  margin: 0 0 4px 0 !important;
+  font-size: 1.2rem !important;
+  color: #ffffff !important;
+  text-decoration: none !important;
+}
+
+/* Subtext color alignment */
 .contact-info p {
-  margin: 0;
-  font-size: 0.95rem;
-  color: #94a3b8;
-  word-break: break-all;
+  margin: 0 !important;
+  font-size: 0.95rem !important;
+  color: #94a3b8 !important;
+  text-decoration: none !important;
 }
