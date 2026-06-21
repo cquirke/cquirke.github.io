@@ -377,3 +377,63 @@ html, body {
 .repo-action-btn:hover {
   background: #1d4ed8;
 }
+
+/* Contact Page Specific Styles */
+.contact-container {
+  max-width: 800px;
+  margin: 0 auto;
+}
+
+.contact-intro {
+  color: #94a3b8;
+  font-size: 1.1rem;
+  line-height: 1.6;
+  margin-bottom: 40px;
+}
+
+.contact-methods {
+  display: grid;
+  grid-template-columns: repeat(auto-fit, minmax(280px, 1fr));
+  gap: 20px;
+}
+
+.contact-card {
+  display: flex;
+  align-items: center;
+  background: #0f172a;
+  border: 1px solid #1e293b;
+  border-left: 4px solid #3b82f6;
+  border-radius: 10px;
+  padding: 20px;
+  text-decoration: none;
+  color: #e5e7eb;
+  transition: transform 0.2s ease, background 0.2s ease, border-color 0.2s ease;
+}
+
+.contact-card:hover {
+  transform: translateY(-3px);
+  background: #1e293b;
+  border-left-color: #60a5fa;
+  box-shadow: 0 10px 25px rgba(0,0,0,0.4);
+}
+
+.contact-icon {
+  font-size: 2rem;
+  margin-right: 20px;
+  color: #60a5fa;
+  min-width: 40px;
+  text-align: center;
+}
+
+.contact-info h3 {
+  margin: 0 0 4px 0;
+  font-size: 1.1rem;
+  color: #ffffff;
+}
+
+.contact-info p {
+  margin: 0;
+  font-size: 0.95rem;
+  color: #94a3b8;
+  word-break: break-all;
+}
