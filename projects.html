@@ -178,6 +178,29 @@
       </div>
     `).join('');
 
+    // Build Image Slider Carousel markup
+    const imagesHtml = data.images.map(src => `
+      <div class="carousel-slide">
+        <img src="${src}" alt="Engineering documentation asset" onerror="this.src='https://images.unsplash.com/photo-1581092160607-ee22621dd758?q=80&w=600';">
+      </div>
+    `).join('');
+
+    // Build Parameter Grid Tiles
+    const specsHtml = data.parameters.map(param => `
+      <div class="spec-tile">
+        <div class="spec-label">${param.label}</div>
+        <div class="spec-value">${param.value}</div>
+      </div>
+    `).join('');
+
+    // Build In-Depth Technical Breakdown Cards
+    const breakdownHtml = data.technicalBreakdown.map((block, idx) => `
+      <div class="body-card">
+        <h3>0${idx + 1} // ${block.heading}</h3>
+        <p>${block.body}</p>
+      </div>
+    `).join('');
+    
     contentArea.innerHTML = `
       <div class="detail-header-block">
         <h1 class="system-title">${data.title}</h1>
