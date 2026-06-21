@@ -277,3 +277,103 @@ html, body {
     border-radius: 6px;
   }
 }
+
+/* Styling for the interactive preview cards */
+.project-card-trigger {
+  background: #0f172a;
+  border-radius: 12px;
+  padding: 30px;
+  margin-bottom: 30px;
+  border-left: 5px solid #3b82f6;
+  cursor: pointer;
+  transition: transform 0.3s ease, box-shadow 0.3s ease, border-color 0.3s ease;
+}
+
+.project-card-trigger:hover {
+  transform: translateY(-5px);
+  box-shadow: 0 15px 40px rgba(0,0,0,0.6);
+  border-left-color: #60a5fa;
+}
+
+.project-card-trigger .view-link {
+  display: inline-block;
+  margin-top: 15px;
+  color: #60a5fa;
+  font-weight: bold;
+}
+
+/* Visibility state engine */
+.hidden {
+  display: none !important;
+}
+
+/* Dynamic sub-route page layout elements */
+.back-btn {
+  background: #1e293b;
+  color: #e5e7eb;
+  border: 1px solid #334155;
+  padding: 10px 20px;
+  border-radius: 6px;
+  font-weight: 600;
+  cursor: pointer;
+  margin-bottom: 30px;
+  transition: background 0.2s;
+}
+
+.back-btn:hover {
+  background: #334155;
+  color: #ffffff;
+}
+
+.project-view-title {
+  font-size: 2.5rem;
+  margin-bottom: 10px;
+}
+
+.project-timeline {
+  color: #94a3b8;
+  font-size: 0.95rem;
+  margin-bottom: 30px;
+}
+
+.project-view-body {
+  line-height: 1.7;
+  font-size: 1.1rem;
+  background: #111827;
+  padding: 30px;
+  border-radius: 8px;
+  margin-bottom: 30px;
+}
+
+.project-view-body h3 {
+  color: #3b82f6;
+  margin-top: 25px;
+}
+
+.project-view-body h3:first-of-type {
+  margin-top: 0;
+}
+
+.project-view-body ul {
+  padding-left: 20px;
+}
+
+.project-view-body li {
+  margin-bottom: 10px;
+}
+
+/* Prominent Main Repository Button */
+.repo-action-btn {
+  display: inline-block;
+  background: #2563eb;
+  color: white;
+  text-decoration: none;
+  font-weight: bold;
+  padding: 14px 28px;
+  border-radius: 6px;
+  transition: background 0.2s;
+}
+
+.repo-action-btn:hover {
+  background: #1d4ed8;
+}
