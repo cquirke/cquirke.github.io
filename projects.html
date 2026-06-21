@@ -18,155 +18,200 @@
 
 <div class="section">
 
-  <h1>Engineering Projects</h1>
-  <p>
-    Below are selected aerospace and mechanical engineering projects focused on propulsion,
-    UAV systems, and structural design. Each project emphasizes design, analysis, testing,
-    and real-world engineering application.
-  </p>
-
-  <!-- PROJECT CARD -->
-  <div class="project-card">
-    <h2>V1.0 Solid Rocket Motor</h2>
-    <p class="project-subtitle">Solid Rocket Motor Design & Static Fire Testing</p>
-
+  <div id="projects-grid">
+    <h1>Engineering Projects</h1>
     <p>
-      Designed, manufactured, and tested a solid rocket motor prototype with a focus on
-      structural integrity, thrust performance, and combustion stability.
+      Below are selected aerospace and mechanical engineering projects focused on propulsion,
+      UAV systems, and structural design. Click on any project to view its full documentation.
     </p>
 
-    <ul>
-      <li>Grain geometry design using OpenMotor</li>
-      <li>Nozzle and casing structural analysis</li>
-      <li>Static fire testing and data evaluation</li>
-      <li>Manufacturing and assembly</li>
-    </ul>
-    <p>Fall 2024 - Current</p>
+    <div class="project-card-trigger" data-project="v1-rocket">
+      <h2>V1.0 Solid Rocket Motor</h2>
+      <p class="project-subtitle">Solid Rocket Motor Design & Static Fire Testing</p>
+      <p>Designed, manufactured, and tested a solid rocket motor prototype with a focus on structural integrity and combustion stability.</p>
+      <span class="view-link">View Project Details &rarr;</span>
+    </div>
 
-    <a href="https://github.com/cquirke/Prototype1_SRM" target="_blank">View Repository</a>
+    <div class="project-card-trigger" data-project="propulsion-onboarding">
+      <h2>Propulsion Onboarding</h2>
+      <p class="project-subtitle">Engineering Training Course</p>
+      <p>Developed structured onboarding course for new propulsion team members, covering rocket fundamentals and safety procedures.</p>
+      <span class="view-link">View Project Details &rarr;</span>
+    </div>
+
+    <div class="project-card-trigger" data-project="tripoli-l2">
+      <h2>Tripoli L2 Certification</h2>
+      <p class="project-subtitle">High-Power Rocket Construction</p>
+      <p>Built and launched a high-power rocket to achieve Tripoli Level 2 certification, demonstrating structural design and compliance.</p>
+      <span class="view-link">View Project Details &rarr;</span>
+    </div>
+
+    <div class="project-card-trigger" data-project="uav-challenge">
+      <h2>UAV Design Challenge 2024</h2>
+      <p class="project-subtitle">Competition UAV System</p>
+      <p>Designed and built a mission-capable UAV for a national design competition, focusing on payload delivery and flight performance.</p>
+      <span class="view-link">View Project Details &rarr;</span>
+    </div>
+
+    <div class="project-card-trigger" data-project="boat-tail">
+      <h2>Rocket Boat Tail</h2>
+      <p class="project-subtitle">Aerodynamic Component Design</p>
+      <p>Designed an aerodynamic boat tail to reduce base drag on a competition rocket, improving flight efficiency and stability.</p>
+      <span class="view-link">View Project Details &rarr;</span>
+    </div>
   </div>
-  
-   <!-- PROJECT CARD -->
-  <div class="project-card">
-    <h2>Propulsion Onboarding</h2>
-    <p class="project-subtitle">Engineering Training Course</p>
 
-    <p>
-      Developed structured onboarding course for new propulsion team members,
-      covering rocket fundamentals, analysis tools, and safety procedures.
-    </p>
-
-    <ul>
-      <li>Technical documentation</li>
-      <li>Propulsion theory</li>
-      <li>Team training structure</li>
-    </ul>
-    <p>Spring 2026</p>
-
-    <a href="https://github.com/cquirke/Propulsion_Onboarding" target="_blank">View Repository</a>
+  <div id="project-view-window" class="hidden">
+    <button id="back-to-projects-btn" class="back-btn">&larr; Back to All Projects</button>
+    
+    <div id="dynamic-content">
+      </div>
   </div>
-  
- <!-- PROJECT CARD -->
-  <div class="project-card">
-    <h2>Tripoli L2 Certification</h2>
-    <p class="project-subtitle">High-Power Rocket Construction</p>
 
-    <p>
-      Built and launched a high-power rocket to achieve Tripoli Level 2 certification,
-      demonstrating structural design, propulsion integration, and flight safety compliance.
-    </p>
-
-    <ul>
-      <li>Rocket structural design</li>
-      <li>Manufacturing & integration</li>
-      <li>Flight safety procedures</li>
-      <li>Launch operations</li>
-    </ul>
-    <p>Winter 2025 - Current</p>
-
-    <a href="https://github.com/cquirke/Tripoli_Certification" target="_blank">View Repository</a>
-  </div>
-  
-<!--
-  <div class="project-card">
-    <h2>Rocket Boat Tail</h2>
-    <p class="project-subtitle">Aerodynamic Component Design</p>
-
-    <p>
-      Designed an aerodynamic boat tail to reduce base drag on a competition rocket,
-      improving flight efficiency and stability.
-    </p>
-
-    <ul>
-      <li>CAD modeling</li>
-      <li>Aerodynamic considerations</li>
-      <li>Manufacturing for competition use</li>
-    </ul>
-    <p>Spring 2025</p>
-
-    <a href="https://github.com/cquirke/CompRocket_Boat_Tail" target="_blank">View Repository</a>
-  </div>
--->
-  
-<!-- PROJECT CARD -->
-  <div class="project-card">
-    <h2>Engineering Communications Final Project</h2>
-    <p class="project-subtitle">Presentation and Course Creation</p>
-
-    <p>
-      Built a new course concept and proposal for the Liberty University Engineering 
-      department. Presented this concept and introduced the proposal to the dean.
-    </p>
-
-    <ul>
-      <li>Technical communication</li>
-      <li>Curriculum & course design</li>
-      <li>Presentation & public speaking</li>
-    </ul>
-    <p>Spring 2025</p>
-
-    <a href="https://github.com/cquirke/Communications_ENGR-Final_Project" target="_blank">View Repository</a>
-  </div>
-  
- <!-- PROJECT CARD -->
-  <div class="project-card">
-    <h2>Introduction to Engineering Final Project</h2>
-    <p class="project-subtitle">Construct Mousetrap Car</p>
-
-    <p>
-      Designed and built a mousetrap car to requirements. Required to follow
-      a specific course and present on our project
-    </p>
-
-    <ul>
-      <li>Technical Documentation</li>
-      <li>Upholding Schedule</li>
-    </ul>
-    <p>Fall 2024</p>
-    <a href="https://github.com/cquirke/Intro_to_ENGR-Final_Project" target="_blank">View Repository</a>
-  </div>
-  
-  <!-- PROJECT CARD -->
-  <div class="project-card">
-    <h2>UAV Design Challenge 2024</h2>
-    <p class="project-subtitle">Competition UAV System</p>
-
-    <p>
-      Designed and built a mission-capable UAV for a national design competition,
-      focusing on payload delivery, structural optimization, and flight performance.
-    </p>
-
-    <ul>
-      <li>Mechanism CAD design</li>
-      <li>Electronics integration</li>
-      <li>Flight testing & tuning</li>
-      <li>Mission planning</li>
-    </ul>
-    <p>Fall 2023 - Spring 2024</p>
-    <a href="https://cquirke.github.io/UAV_Design_Challenge-2024/" target="_blank">View Repository</a>
-  </div>
-  
 </div>
+
+<script>
+  // Complete detailed data for each project
+  const projectDatabase = {
+    "v1-rocket": {
+      title: "V1.0 Solid Rocket Motor",
+      subtitle: "Solid Rocket Motor Design & Static Fire Testing",
+      timeline: "Fall 2024 - Current",
+      description: "Designed, manufactured, and tested a solid rocket motor prototype with a focus on structural integrity, thrust performance, and combustion stability.",
+      highlights: [
+        "Grain geometry design using OpenMotor",
+        "Nozzle and casing structural analysis",
+        "Static fire testing and data evaluation",
+        "Manufacturing and assembly"
+      ],
+      repoUrl: "https://github.com/cquirke/Prototype1_SRM"
+    },
+    "propulsion-onboarding": {
+      title: "Propulsion Onboarding",
+      subtitle: "Engineering Training Course",
+      timeline: "Spring 2026",
+      description: "Developed structured onboarding course for new propulsion team members, covering rocket fundamentals, analysis tools, and safety procedures.",
+      highlights: [
+        "Technical documentation structures",
+        "Propulsion theory basics",
+        "Team training structures & milestones"
+      ],
+      repoUrl: "https://github.com/cquirke/Propulsion_Onboarding"
+    },
+    "tripoli-l2": {
+      title: "Tripoli L2 Certification",
+      subtitle: "High-Power Rocket Construction",
+      timeline: "Winter 2025 - Current",
+      description: "Built and launched a high-power rocket to achieve Tripoli Level 2 certification, demonstrating structural design, propulsion integration, and flight safety compliance.",
+      highlights: [
+        "Rocket structural design & calculations",
+        "Manufacturing & component integration",
+        "Flight safety procedures & checklist development",
+        "Launch operations leadership"
+      ],
+      repoUrl: "https://github.com/cquirke/Tripoli_Certification"
+    },
+    "uav-challenge": {
+      title: "UAV Design Challenge 2024",
+      subtitle: "Competition UAV System",
+      timeline: "Fall 2023 - Spring 2024",
+      description: "Designed and built a mission-capable UAV for a national design competition, focusing on payload delivery, structural optimization, and flight performance.",
+      highlights: [
+        "Mechanism CAD design & implementation",
+        "Electronics and receiver integration",
+        "Flight testing, data extraction & tuning",
+        "Mission planning under tight operational envelopes"
+      ],
+      repoUrl: "https://cquirke.github.io/UAV_Design_Challenge-2024/"
+    },
+    "boat-tail": {
+      title: "Rocket Boat Tail",
+      subtitle: "Aerodynamic Component Design",
+      timeline: "Spring 2025",
+      description: "Designed an aerodynamic boat tail to reduce base drag on a competition rocket, improving flight efficiency and stability.",
+      highlights: [
+        "Advanced CAD modeling & constraints",
+        "Aerodynamic boundary-layer considerations",
+        "Manufacturing planning for high-vibration competition environments"
+      ],
+      repoUrl: "https://github.com/cquirke/CompRocket_Boat_Tail"
+    }
+  };
+
+  const gridView = document.getElementById('projects-grid');
+  const windowView = document.getElementById('project-view-window');
+  const contentArea = document.getElementById('dynamic-content');
+  const backBtn = document.getElementById('back-to-projects-btn');
+
+  // Function to show a project full page view
+  function renderProject(id) {
+    const data = projectDatabase[id];
+    if (!data) {
+      showGrid();
+      return;
+    }
+
+    // Build rich DOM structure inline
+    contentArea.innerHTML = `
+      <h1 class="project-view-title">${data.title}</h1>
+      <p class="project-subtitle">${data.subtitle}</p>
+      <p class="project-timeline"><strong>Timeline:</strong> ${data.timeline}</p>
+      
+      <div class="project-view-body">
+        <h3>Project Overview</h3>
+        <p>${data.description}</p>
+        
+        <h3>Key Accomplishments & Responsibilities</h3>
+        <ul>
+          ${data.highlights.map(item => `<li>${item}</li>`).join('')}
+        </ul>
+      </div>
+      
+      <a href="${data.repoUrl}" target="_blank" class="repo-action-btn">Explore Repository on GitHub</a>
+    `;
+
+    gridView.style.display = 'none';
+    windowView.classList.remove('hidden');
+    window.scrollTo(0, 0);
+  }
+
+  // Function to revert back to grid list
+  function showGrid() {
+    windowView.classList.add('hidden');
+    gridView.style.display = 'block';
+    history.pushState(null, '', 'projects.html');
+  }
+
+  // Click handler on cards
+  document.querySelectorAll('.project-card-trigger').forEach(card => {
+    card.addEventListener('click', () => {
+      const id = card.getAttribute('data-project');
+      history.pushState({ projectId: id }, '', `?id=${id}`);
+      renderProject(id);
+    });
+  });
+
+  // Back button handler
+  backBtn.addEventListener('click', showGrid);
+
+  // Monitor browser back/forward buttons to maintain accurate "sub-routes"
+  window.addEventListener('popstate', () => {
+    const urlParams = new URLSearchParams(window.location.search);
+    const id = urlParams.get('id');
+    if (id) {
+      renderProject(id);
+    } else {
+      showGrid();
+    }
+  });
+
+  // On initial page load check if user linked directly to a project sub-route
+  const urlParams = new URLSearchParams(window.location.search);
+  const initialId = urlParams.get('id');
+  if (initialId) {
+    renderProject(initialId);
+  }
+</script>
 
 </body>
 </html>
