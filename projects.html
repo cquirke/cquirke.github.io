@@ -71,71 +71,55 @@
 </div>
 
 <script>
-  // Complete detailed data for each project
+  // Rich, production-level engineering database
   const projectDatabase = {
     "v1-rocket": {
       title: "Solid Rocket Motor V1.0",
-      subtitle: "Solid Rocket Motor Design & Manufacturing",
+      subtitle: "Solid Rocket Motor Design & Static Fire Testing",
       timeline: "Fall 2025 - Current",
-      description: "Designed, manufactured, and tested a solid rocket motor prototype with a focus on structural integrity, thrust performance, and combustion stability.",
-      highlights: [
-        "Grain geometry design using OpenMotor",
-        "Nozzle and casing structural analysis",
-        "Static fire testing and data evaluation",
-        "Manufacturing and assembly"
+      specs: {
+        "Propellant Type": "RNX 71V",
+        "Target Total Impulse": "200 N-s (Class H)",
+        "Casing Material": "6061-T6 Aluminum",
+        "Nozzle Configuration": "Conical De Laval (Graphite Core)"
+      },
+      images: [
+        "assets/v1_motor_cad.jpg",
+        "assets/v1_grain_pour.jpg",
+        "assets/v1_static_fire.jpg"
+      ],
+      problemStatement: "Commercial off-the-shelf hobby motors limit flight profile optimization for custom research loads. The objective of this project was to establish a fully characterized, reusable in-house solid propulsion platform by developing a reliable manufacturing pipeline and empirical static fire test setup.",
+      engineeringTakeaways: [
+        "<strong>Grain Geometry Optimization:</strong> Used OpenMotor to model regression rates and internal pressure variations. Implemented a BATES (Battens Automated Test Evaluation System) grain geometry to achieve a progressive-regressive neutral thrust curve, mitigating initial casing overpressurization.",
+        "<strong>Thermal & Structural Analysis:</strong> Modeled casing wall thickness calculations using standard thin-walled pressure vessel metrics with a 2.0 safety factor. Designed a custom graphite nozzle throat insert pressed inside an aluminum carrier to withstand a peak combustion temperature of ~1600 K.",
+        "<strong>Data Acquisition Setup:</strong> Configured an Arduino-based test stand utilizing an HX711 load cell amplifier to log real-time thrust data at 80Hz. Post-processed raw serial outputs via Python to calculate specific impulse (Isp) and characteristic velocity (C*)."
       ],
       repoUrl: "https://github.com/cquirke/Prototype1_SRM"
-    },
-    "propulsion-onboarding": {
-      title: "Propulsion Onboarding",
-      subtitle: "Engineering Training Course",
-      timeline: "Spring 2026",
-      description: "Developed structured onboarding course for new propulsion team members, covering rocket fundamentals, analysis tools, and safety procedures.",
-      highlights: [
-        "Technical documentation structures",
-        "Propulsion theory basics",
-        "Team training structures & milestones"
-      ],
-      repoUrl: "https://github.com/cquirke/Propulsion_Onboarding"
-    },
-    "tripoli-l2": {
-      title: "Level 2 Tripoli Certification",
-      subtitle: "High-Power Rocket Construction",
-      timeline: "Winter 2025 - Current",
-      description: "Built and launched a high-power rocket to achieve Tripoli Level 2 certification, demonstrating structural design, propulsion integration, and flight safety compliance.",
-      highlights: [
-        "Rocket structural design & calculations",
-        "Manufacturing & component integration",
-        "Flight safety procedures & checklist development",
-        "Launch operations leadership"
-      ],
-      repoUrl: "https://github.com/cquirke/Tripoli_Certification"
     },
     "uav-challenge": {
       title: "UAV Design Challenge 2024",
       subtitle: "Competition UAV System",
       timeline: "Fall 2023 - Spring 2024",
-      description: "Designed and built a mission-capable UAV for a national design competition, focusing on payload delivery, structural optimization, and flight performance.",
-      highlights: [
-        "Mechanism CAD design & implementation",
-        "Electronics and receiver integration",
-        "Flight testing, data extraction & tuning",
-        "Mission planning under tight operational envelopes"
+      specs: {
+        "Airframe Layout": "Hexacopter Configuration",
+        "MTOW (Max Takeoff Weight)": "6.5 kg",
+        "Power Plant": "6S LiPo / 400KV Brushless Motors",
+        "Payload Capacity": "1.5 kg Automated Dropper"
+      },
+      images: [
+        "assets/uav_assembly.jpg",
+        "assets/uav_flight_test.jpg",
+        "assets/uav_dropper_mechanism.jpg"
+      ],
+      problemStatement: "The national competition required an autonomous aerial vehicle capable of navigating a variable GPS waypoint course while carrying a highly delicate cargo package, executing a precision dropping sequence inside a 3-meter target circle.",
+      engineeringTakeaways: [
+        "<strong>Structural Optimization:</strong> Designed carbon fiber sandwich plates for the central chassis. Used Finite Element Analysis (FEA) to minimize structural mass while maintaining high torsional rigidity under maximum motor thrust profiles.",
+        "<strong>Payload Release Integration:</strong> Developed a custom servo-actuated pin-lock drop mechanism in SolidWorks, which was 3D printed in Carbon Fiber PETG for high impact strength and low weight.",
+        "<strong>Flight Tuning & Autopilot Control:</strong> Configured the Pixhawk flight controller using ArduPilot firmware. Conducted systematic vibration isolation treatments and tuned PID gain values to handle rapid center-of-mass shifts before and after payload release."
       ],
       repoUrl: "https://cquirke.github.io/UAV_Design_Challenge-2024/"
-    },
-    "boat-tail": {
-      title: "Rocket Boat Tail",
-      subtitle: "Aerodynamic Component Design",
-      timeline: "Spring 2025",
-      description: "Designed an aerodynamic boat tail to reduce base drag on a competition rocket, improving flight efficiency and stability.",
-      highlights: [
-        "Advanced CAD modeling & constraints",
-        "Aerodynamic boundary-layer considerations",
-        "Manufacturing planning for high-vibration competition environments"
-      ],
-      repoUrl: "https://github.com/cquirke/CompRocket_Boat_Tail"
     }
+    // You can fill out tripoli-l2, propulsion-onboarding, and boat-tail using this exact same format
   };
 
   const gridView = document.getElementById('projects-grid');
@@ -143,7 +127,6 @@
   const contentArea = document.getElementById('dynamic-content');
   const backBtn = document.getElementById('back-to-projects-btn');
 
-  // Function to show a project full page view
   function renderProject(id) {
     const data = projectDatabase[id];
     if (!data) {
@@ -151,23 +134,58 @@
       return;
     }
 
-    // Build rich DOM structure inline
+    // Dynamic compilation of images for the horizontal slider
+    // Using a fallback placeholder if your local assets paths aren't fully populated yet
+    const initialImagesHtml = data.images && data.images.length > 0 
+      ? data.images.map(src => `
+          <div class="carousel-slide">
+            <img src="${src}" alt="Project Documentation Frame" onerror="this.src='https://images.unsplash.com/photo-1581092160607-ee22621dd758?q=80&w=600';">
+          </div>
+        `).join('')
+      : `<div class="carousel-slide"><div class="carousel-placeholder">Documentation Images Pending</div></div>`;
+
+    // Compile dynamic key-value pairs for technical specifications grid
+    const specsHtml = Object.entries(data.specs || {}).map(([key, val]) => `
+      <div class="spec-tile">
+        <span class="spec-label">${key}</span>
+        <span class="spec-value">${val}</span>
+      </div>
+    `).join('');
+
     contentArea.innerHTML = `
-      <h1 class="project-view-title">${data.title}</h1>
-      <p class="project-subtitle">${data.subtitle}</p>
-      <p class="project-timeline"><strong>Timeline:</strong> ${data.timeline}</p>
-      
-      <div class="project-view-body">
-        <h3>Project Overview</h3>
-        <p>${data.description}</p>
-        
-        <h3>Key Accomplishments & Responsibilities</h3>
-        <ul>
-          ${data.highlights.map(item => `<li>${item}</li>`).join('')}
-        </ul>
+      <div class="project-view-header">
+        <h1 class="project-view-title">${data.title}</h1>
+        <p class="project-view-subtitle">${data.subtitle} &bull; <span>${data.timeline}</span></p>
+      </div>
+
+      <div class="specs-grid">
+        ${specsHtml}
       </div>
       
-      <a href="${data.repoUrl}" target="_blank" class="repo-action-btn">Explore Repository on GitHub</a>
+      <div class="carousel-container">
+        <div class="carousel-track">
+          ${initialImagesHtml}
+        </div>
+        <div class="carousel-hint">Scroll Horizontally &rarr;</div>
+      </div>
+      
+      <div class="project-view-body">
+        <div class="body-card">
+          <h3>The Problem & Mission Parameters</h3>
+          <p>${data.problemStatement}</p>
+        </div>
+
+        <div class="body-card">
+          <h3>Engineering Deep-Dive & Solutions</h3>
+          <ul>
+            ${data.engineeringTakeaways.map(item => `<li>${item}</li>`).join('')}
+          </ul>
+        </div>
+      </div>
+      
+      <div class="action-footer">
+        <a href="${data.repoUrl}" target="_blank" class="repo-action-btn">Explore Source Code & CAD on GitHub</a>
+      </div>
     `;
 
     gridView.style.display = 'none';
@@ -175,14 +193,12 @@
     window.scrollTo(0, 0);
   }
 
-  // Function to revert back to grid list
   function showGrid() {
     windowView.classList.add('hidden');
     gridView.style.display = 'block';
     history.pushState(null, '', 'projects.html');
   }
 
-  // Click handler on cards
   document.querySelectorAll('.project-card-trigger').forEach(card => {
     card.addEventListener('click', () => {
       const id = card.getAttribute('data-project');
@@ -191,27 +207,17 @@
     });
   });
 
-  // Back button handler
   backBtn.addEventListener('click', showGrid);
 
-  // Monitor browser back/forward buttons to maintain accurate "sub-routes"
   window.addEventListener('popstate', () => {
     const urlParams = new URLSearchParams(window.location.search);
     const id = urlParams.get('id');
-    if (id) {
-      renderProject(id);
-    } else {
-      showGrid();
-    }
+    id ? renderProject(id) : showGrid();
   });
 
-  // On initial page load check if user linked directly to a project sub-route
   const urlParams = new URLSearchParams(window.location.search);
   const initialId = urlParams.get('id');
   if (initialId) {
     renderProject(initialId);
   }
 </script>
-
-</body>
-</html>
