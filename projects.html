@@ -6,7 +6,7 @@
   <title>Projects | Collin Quirke</title>
   <link rel="stylesheet" href="style.css">
   <style>
-    /* Crucial fix to make the view toggling work */
+    /* Crucial fix to make the view toggling work reliably */
     .hidden {
       display: none !important;
     }
@@ -31,42 +31,42 @@
       UAV systems, and structural design. Click on any project to view its full documentation.
     </p>
 
-    <div class="project-card-trigger" data-project="irec26">
+    <div class="project-card-trigger" data-project="irec26" style="cursor: pointer;">
       <h2>Project Omega (IREC 2026)</h2>
       <p class="project-subtitle">IREC '26 Technical Recap</p>
       <p>Contributed significantly to technical report writing, transient ballistics modeling via numerical solvers, and propulsion system integration.</p>
       <span class="view-link">View Project Details &rarr;</span>
     </div>
     
-    <div class="project-card-trigger" data-project="v1-rocket">
+    <div class="project-card-trigger" data-project="v1-rocket" style="cursor: pointer;">
       <h2>Solid Rocket Motor V1.0</h2>
       <p class="project-subtitle">Solid Rocket Motor Design & Manufacturing</p>
       <p>Designed, simulated, and manufactured a solid rocket motor prototype with focus on structural integrity, motor performance, and combustion stability.</p>
       <span class="view-link">View Project Details &rarr;</span>
     </div>
 
-    <div class="project-card-trigger" data-project="propulsion-onboarding">
+    <div class="project-card-trigger" data-project="propulsion-onboarding" style="cursor: pointer;">
       <h2>Propulsion Onboarding</h2>
       <p class="project-subtitle">Propulsive Engineering Training Course</p>
       <p>8-week student developed course made for new rocketry members covering rocket fundamentals, theory, methodology, and safety procedures.</p>
       <span class="view-link">View Project Details &rarr;</span>
     </div>
 
-    <div class="project-card-trigger" data-project="tripoli-l2">
+    <div class="project-card-trigger" data-project="tripoli-l2" style="cursor: pointer;">
       <h2>Tripoli L2 Certification</h2>
       <p class="project-subtitle">High-Power Rocket Construction</p>
       <p>Built and launched a high-power rocket to achieve Tripoli Level 2 certification, demonstrating structural design and compliance.</p>
       <span class="view-link">View Project Details &rarr;</span>
     </div>
 
-    <div class="project-card-trigger" data-project="uav-challenge">
+    <div class="project-card-trigger" data-project="uav-challenge" style="cursor: pointer;">
       <h2>UAV Design Challenge 2024</h2>
       <p class="project-subtitle">Competition UAV System</p>
       <p>Designed and built a mission-capable UAV for a national design competition, focusing on payload delivery and flight performance.</p>
       <span class="view-link">View Project Details &rarr;</span>
     </div>
 
-    <div class="project-card-trigger" data-project="boat-tail">
+    <div class="project-card-trigger" data-project="boat-tail" style="cursor: pointer;">
       <h2>Rocket Boat Tail</h2>
       <p class="project-subtitle">Aerodynamic Component Design</p>
       <p>Designed an aerodynamic boat tail to reduce base drag on a competition rocket, improving flight efficiency and stability.</p>
@@ -76,9 +76,7 @@
 
   <div id="project-view-window" class="hidden">
     <button id="back-to-projects-btn" class="back-btn">&larr; Back to All Projects</button>
-    
-    <div id="dynamic-content">
-      </div>
+    <div id="dynamic-content"></div>
   </div>
 
 </div>
@@ -89,7 +87,7 @@
       title: "Project Omega (IREC 2026)",
       subtitle: "Flagship Intercollegiate Competition Vehicle & Internal Ballistics Modeling",
       timeline: "Annual Cycle — 2026",
-      github: "https://github.com/cquirke/", // Replace with the real report or code link if available
+      github: "https://github.com/cquirke/Project-Omega-IREC", // UPDATE THIS TO REPO
       parameters: [
         { label: "Engineering Stack", value: "MATLAB, Onshape, SolidWorks, OpenRocket" },
         { label: "Core Focus", value: "Transient Internal Ballistics & Performance Verification" },
@@ -152,7 +150,6 @@
           body: "Engineered a dedicated hardware platform utilizing an instrumentation amplifier load bridge hooked to an ATmega328P microcontroller core. Custom serial output scripts compiled the raw continuous analog voltage changes into clean data matrices. A secondary automated Python script executed digital filters and calculated definitive specific impulse (Isp) and total mechanical efficiency constants."
         }
       ]
-      action-footer: [https://github.com/cquirke/Project-Omega]
     },
     "uav-challenge": {
       title: "UAV Autonomous Design Project",
@@ -202,14 +199,13 @@
       return;
     }
 
-    // Build Image Slider Carousel markup
+    // Removed the "onerror" fallback completely so your actual photos are forced to try rendering
     const imagesHtml = data.images.map(src => `
       <div class="carousel-slide">
-        <images>
+        <img src="${src}" alt="Engineering documentation asset">
       </div>
     `).join('');
 
-    // Build Parameter Grid Tiles
     const specsHtml = data.parameters.map(param => `
       <div class="spec-tile">
         <div class="spec-label">${param.label}</div>
@@ -217,7 +213,6 @@
       </div>
     `).join('');
 
-    // Build In-Depth Technical Breakdown Cards
     const breakdownHtml = data.technicalBreakdown.map((block, idx) => `
       <div class="body-card">
         <h3>0${idx + 1} // ${block.heading}</h3>
@@ -253,18 +248,20 @@
 
       <div class="action-footer">
         <a href="${data.github}" target="_blank" class="repo-action-btn">
-          Read Full Technical Report
+          Read Full Technical Report / View Repository
         </a>
       </div>
     `;
-    gridView.style.display = 'none';
+    
+    // Updated visibility toggles using classes exclusively
+    gridView.classList.add('hidden');
     windowView.classList.remove('hidden');
     window.scrollTo({ top: 0, behavior: 'smooth' });
   }
 
   function showGrid() {
     windowView.classList.add('hidden');
-    gridView.style.display = 'block';
+    gridView.classList.remove('hidden');
     history.pushState(null, '', 'projects.html');
   }
 
