@@ -5,6 +5,12 @@
   <meta charset="UTF-8">
   <title>Projects | Collin Quirke</title>
   <link rel="stylesheet" href="style.css">
+  <style>
+    /* Crucial fix to make the view toggling work */
+    .hidden {
+      display: none !important;
+    }
+  </style>
 </head>
 <body>
 
@@ -25,6 +31,13 @@
       UAV systems, and structural design. Click on any project to view its full documentation.
     </p>
 
+    <div class="project-card-trigger" data-project="irec26">
+      <h2>IREC 2026</h2>
+      <p class="project-subtitle">IREC '26 Technical Recap</p>
+      <p>Contributed significantly to technical report and technical abstract..</p>
+      <span class="view-link">View Project Details &rarr;</span>
+    </div>
+    
     <div class="project-card-trigger" data-project="v1-rocket">
       <h2>Solid Rocket Motor V1.0</h2>
       <p class="project-subtitle">Solid Rocket Motor Design & Manufacturing</p>
@@ -153,30 +166,6 @@
       showGrid();
       return;
     }
-
-    // Build Image Slider Carousel markup with beautiful placeholder fallbacks
-    const imagesHtml = data.images.map(src => `
-      <div class="gallery-slide">
-        <img src="${src}" alt="Engineering documentation asset" onerror="this.src='https://images.unsplash.com/photo-1581092160607-ee22621dd758?q=80&w=600';">
-      </div>
-    `).join('');
-
-    // Build Parameter Grid Tiles
-    const specsHtml = data.parameters.map(param => `
-      <div class="param-tile">
-        <div class="param-label">${param.label}</div>
-        <div class="param-value">${param.value}</div>
-      </div>
-    `).join('');
-
-    // Build In-Depth Technical Breakdown Columns
-    const breakdownHtml = data.technicalBreakdown.map((block, idx) => `
-      <div class="blueprint-card">
-        <div class="blueprint-index">0${idx + 1} // TECH MODULE</div>
-        <h3>${block.heading}</h3>
-        <p>${block.body}</p>
-      </div>
-    `).join('');
 
     // Build Image Slider Carousel markup
     const imagesHtml = data.images.map(src => `
