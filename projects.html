@@ -32,9 +32,9 @@
     </p>
 
     <div class="project-card-trigger" data-project="irec26">
-      <h2>IREC 2026</h2>
+      <h2>Project Omega (IREC 2026)</h2>
       <p class="project-subtitle">IREC '26 Technical Recap</p>
-      <p>Contributed significantly to technical report and technical abstract..</p>
+      <p>Contributed significantly to technical report writing, transient ballistics modeling via numerical solvers, and propulsion system integration.</p>
       <span class="view-link">View Project Details &rarr;</span>
     </div>
     
@@ -85,6 +85,42 @@
 
 <script>
   const projectDatabase = {
+    "irec26": {
+      title: "Project Omega (IREC 2026)",
+      subtitle: "Flagship Intercollegiate Competition Vehicle & Internal Ballistics Modeling",
+      timeline: "Annual Cycle — 2026",
+      github: "https://github.com/cquirke/", // Replace with the real report or code link if available
+      parameters: [
+        { label: "Engineering Stack", value: "MATLAB, Onshape, SolidWorks, OpenRocket, Git" },
+        { label: "Core Focus", value: "Transient Internal Ballistics & Performance Verification" },
+        { label: "Model Architecture", value: "Runge-Kutta Numerical ODE Solver" },
+        { label: "Key Outputs", value: "Chamber Pressure Evolution & Thrust Over Time" },
+        { label: "Role Assignment", value: "Propulsion Team Member / Incoming Propulsion Lead" },
+        { label: "Loss Metrics", value: "Nozzle Divergence & Structural Thermal Efficiency" }
+      ],
+      images: [
+        "assets/irec26_cad.jpg",
+        "assets/irec26_thrust_graph.jpg",
+        "assets/irec26_pressure_graph.jpg",
+        "assets/irec26_launch.jpg",
+        "assets/irec26_team.jpg"
+      ],
+      problemStatement: "The Intercollegiate Rocket Engineering Competition (IREC) demanded multidisciplinary integration across complex systems. While commercial rocket motors provide generic, published thrust profiles, they offer limited visibility into the physical mechanisms governing dynamic combustion. To maximize trajectory confidence, this project required an isolated mathematical pipeline to accurately predict system losses and verify empirical commercial profiles.",
+      technicalBreakdown: [
+        {
+          heading: "Transient Internal Ballistics Numerical Solver",
+          body: "Developed a mathematical simulation in MATLAB using a Runge-Kutta numeric scheme to solve coupled ordinary differential equations. The solver dynamically tracked the relationships between propellant grain regression surface areas, mass generation rates, internal chamber pressure evolution ($P_c$), and supersonic nozzle mass flow exhaust profiles."
+        },
+        {
+          heading: "Non-Ideal Performance & Divergence Loss Integration",
+          body: "Incorporated aerodynamic and thermal loss parameters into the baseline ideal rocket equations. By implementing corrections for structural thermal dissipation and nozzle divergence geometries, the model successfully aligned with empirical testing data. This mitigated structural risks and provided high-fidelity trajectory baselines for the systems team."
+        },
+        {
+          heading: "Verification, Validation, & Technical Documentation",
+          body: "Authored the primary propulsion analysis section of the official IREC technical report. Translating the abstract code routines into physical proof columns reinforced the importance of verification and validation; moving past idealized gas assumptions enabled precise safety margins for structural and recovery systems."
+        }
+      ]
+    },
     "v1-rocket": {
       title: "V1.0 Solid Rocket Motor Design",
       subtitle: "High-Pressure Ballistics & Empirical Static Testing",
@@ -218,7 +254,7 @@
 
       <div class="action-footer">
         <a href="${data.github}" target="_blank" class="repo-action-btn">
-          Access Full Source Repository & Verification Files
+          Read Full Technical Report
         </a>
       </div>
     `;
