@@ -152,6 +152,7 @@
           body: "Engineered a dedicated hardware platform utilizing an instrumentation amplifier load bridge hooked to an ATmega328P microcontroller core. Custom serial output scripts compiled the raw continuous analog voltage changes into clean data matrices. A secondary automated Python script executed digital filters and calculated definitive specific impulse (Isp) and total mechanical efficiency constants."
         }
       ]
+      action-footer: [https://github.com/cquirke/Project-Omega]
     },
     "uav-challenge": {
       title: "UAV Autonomous Design Project",
@@ -204,7 +205,7 @@
     // Build Image Slider Carousel markup
     const imagesHtml = data.images.map(src => `
       <div class="carousel-slide">
-        <img src="${src}" alt="Engineering documentation asset" onerror="this.src='https://images.unsplash.com/photo-1581092160607-ee22621dd758?q=80&w=600';">
+        <images>
       </div>
     `).join('');
 
