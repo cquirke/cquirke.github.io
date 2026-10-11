@@ -53,39 +53,80 @@
       </div>
     </section>
 
-    <section id="project-detail">
-
       <div class="detail-block">
         <h2 class="role-title">Overview</h2>
         <p class="card-description">
-          This was Liberty Rocketry's first attempt at a fully student-researched-and-developed motor. I led the project end-to-end — design, analysis, and the start of manufacturing — before it was paused by the university for review. Development continues independently.
+          This was Liberty Rocketry's first attempt at a fully student-researched-and-developed motor. I led the project end-to-end (design, analysis, and the start of manufacturing) before it was paused by the university. Development continues independently.
         </p>
       </div>
 
       <div class="detail-block">
         <h2 class="role-title">Why RNX-71</h2>
         <p class="card-description">
-          As a first SRAD engine, minimizing risk while proving out the full design-to-manufacture pipeline mattered more than performance. RNX-71 is inexpensive, low-power, and low-consequence, making it well suited for validating process and procedure — including navigating the university's safety approval — before scaling up.
+          As a first SRAD engine, minimizing risk while proving out the full design-to-manufacture pipeline mattered more than performance. RNX-71 is inexpensive, low-power, and low-consequence, making it well suited for validating process and procedure, including navigating the university's safety approval, before scaling up.
         </p>
       </div>
 
       <div class="detail-block">
-        <h2 class="role-title">Design Process</h2>
+        <h2 class="role-title">Process</h2>
         <p class="card-description">
-          Starting from the target scope (38mm, H-class, 400 psi chamber pressure), I worked outward: sized the throat and propellant grain using hand calculations and MATLAB, solved case and closure geometry to close out the pressure vessel design, ran thermal and fluid interaction checks by hand and then in ANSYS, and cross-validated overall motor performance in OpenRocket and RPA before settling on a final design. I modeled the design in CAD and 3D-printed a scale mockup to verify fit before committing to metal.
+          Starting from the target scope (38mm, H-class, 500 psi chamber pressure), I worked outward: 
+          1. From performance goals and propellant charecteristics the team calculated rough geometries and motor characteristics. 
+          2. I created a decision matrix in MATLAB based on 1.
+          3. Worked with a peer to finalize propellant composition and necessary thermodynamic and burn rate properties.
+          4. I built a target model and then modeled in BurnSim4.0 and compared against OpenMotor.
+          5. I modeled the design in SolidWorks, GD and T the fitment, and 3D-printed the assembly to verify.
+          6. Finalized manufacturing plan, drawings, and necessary equipment. Purchased items keeping motor components under $80.
+          7. Started manufacturing.
+        </p>
+      </div>
+
+      <div class="detail-block">
+        <h2 class="role-title">Motor Charecteristics</h2>
+        <p class="card-description"> 
+          Hand calculations for design were done as well as a decsision matrix, shown below. Our parameters were as follows:
+          * Mass flux less than 1200 kg/m^2-sec
+          * Minimum port to throat = 1.1
+          * Chamber Port Mach less than 0.7
+          Additionaly the plot shown shows the balance between Pressure, Mass Flux, and mass flow rate.
         </p>
         <div class="project-media">
-          <img src="../assets/srad-matlab.jpg" alt="MATLAB sizing calculations" />
+          <img src="../assets/MatrixMatlab_SRM_V1b.png" alt="Charecteristic Descision Matrix" />
         </div>
-      </div>
+        <div class="project-media">
+          <img src="../assets/P.G.m_BurnSim_SRM_V1b.png" alt="Charecteristic Plot" />
+        </div>
+        <h2 class="role-title">Hardware</h2>
+        <p class="card-description"> 
+          Designed a two-part nozzle: an aluminum carrier with a phenolic insert retained by a thread design and the insert retained by snap-ring, a singular O-ring is used on the AFT closure for hot gasses, the phenolic insert is designed with a lip over the carrier to protect against hot gasses and allow a 2 piece nozzle.
 
-      <div class="detail-block">
-        <h2 class="role-title">Nozzle Design</h2>
-        <p class="card-description">
-          Designed a two-part nozzle: an aluminum carrier with a phenolic insert, chosen specifically for conical geometry so it could be manufactured on a manual lathe — a manufacturing-constraint-driven decision rather than a performance-optimal one, which mattered for a first-time in-house build.
+          The FWD closure is made of a 6061 aluminum with a phenolic disk protecting it during combustion. It is designed with 2 O-rings, one that seals gasses from going behind the nozzle liner and another for redundancy.
+
+          The insulation liner is an off the shelf phenolic liner from Aerotech. Chosen for simplicity and tradeoff advantage.
+
+          Materials were chosen by there physical charecteristics and considered for ease of manufacturing. Although Graphite is typical it was not chosen based on price of manufacturing, some things that allowed us to make this descision are the conservative chamber pressure and designing the phenolic insert to be single use.
+          
         </p>
         <div class="project-media">
-          <img src="../assets/srad-nozzle-cad.jpg" alt="Nozzle CAD model" />
+          <img src="../assets/SV_SRM_V1b.png" alt="Nozzle CAD model" />
+        </div>
+        <h2 class="role-title">Motor Performance</h2>
+        <p class="card-description"> 
+          Final design led to:
+          * Impulse = 274 N-s (this is 71% of the H class)
+          * Delivered Impulse = 121 s
+          * Burn Time 1.19 s
+          * Average Thrust = 230 N (Peak = 321.8 N) 
+          Considerations: Given solid rocket motors of comparable size and high power propellant this is a very well performing engine. Goal was to model best performance for given restrictions, 500 psi, G less than or equal to 1.8. 
+
+          Comparison: BurnSim4.0 and OpenMotor
+          More weight was put into the result of BurnSim as its physics solver is more accurate and refined. Additionally, more variabillity is allowed in BurnSim for timestep and erosive burning; the Lenoir Robillard erosive burn model was used for this motor because of its accuracy with low powered small motors. OpenMotor was used to confirm results and sensitivity.
+        </p>
+        <div class="project-media">
+          <img src="../assets/Thrust.Kn_BurnSim_SRM_V1b.png" alt="Thrust and Kn vs Time" />
+        </div>
+        <div class="project-media">
+          <img src="../assets/Plot_OpenMotor_SRM_V1b.png" alt="OpenMotor" />
         </div>
       </div>
 
