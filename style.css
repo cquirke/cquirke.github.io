@@ -331,18 +331,18 @@ section:last-of-type {
 
 .gallery-card {
   position: relative;
-  flex: 0 0 300px;
+  flex: 0 0 auto;
+  height: 380px;
   scroll-snap-align: start;
   border-radius: var(--radius-md);
   overflow: hidden;
-  aspect-ratio: 4 / 5;
   background: var(--bg-secondary);
 }
 
 .gallery-card img {
-  width: 100%;
+  width: auto;
   height: 100%;
-  object-fit: cover;
+  object-fit: contain;
   display: block;
 }
 
@@ -747,7 +747,7 @@ footer a:hover {
   }
 
   .gallery-card {
-    flex-basis: 240px;
+    height: 300px;
   }
 
   footer {
@@ -763,4 +763,3 @@ footer a:hover {
     display: none;
   }
 }
-
