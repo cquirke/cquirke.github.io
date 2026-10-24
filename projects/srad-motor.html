@@ -35,7 +35,7 @@
         <div class="detail-specs">
           <div class="vital">
             <span class="vital-label">Class</span>
-            <span class="vital-value">38mm H-Class / 400 psi</span>
+            <span class="vital-value">38mm H-Class / 500 psi</span>
           </div>
           <div class="vital">
             <span class="vital-label">Nozzle</span>
@@ -43,15 +43,17 @@
           </div>
           <div class="vital">
             <span class="vital-label">Analysis</span>
-            <span class="vital-value">MATLAB / ANSYS / RPA</span>
+            <span class="vital-value">MATLAB / ANSYS / BURNSIM</span>
           </div>
           <div class="vital">
             <span class="vital-label">Status</span>
-            <span class="vital-value">Paused — Resuming Independently</span>
+            <span class="vital-value">Paused — Resumed Independently</span>
           </div>
         </div>
       </div>
     </section>
+
+    <main class="container">
 
       <div class="detail-block">
         <h2 class="role-title">Overview</h2>
@@ -71,79 +73,72 @@
         <h2 class="role-title">Process</h2>
         <p class="card-description">
           Starting from the target scope (38mm, H-class, 500 psi chamber pressure), I worked outward:<br>
-          1. From performance goals and propellant charecteristics the team calculated rough geometries and motor characteristics.<br>
-          2. I created a decision matrix in MATLAB based on 1.<br>
-          3. Worked with a peer to finalize propellant composition and necessary thermodynamic and burn rate properties.<br>
-          4. I built a target model and then modeled in BurnSim4.0 and compared against OpenMotor.<br>
-          5. I modeled the design in SolidWorks, GD and T the fitment, and 3D-printed the assembly to verify.<br>
-          6. Finalized manufacturing plan, drawings, and necessary equipment. Purchased items keeping motor components under $80.<br>
-          7. Started manufacturing.<br>
+          1. From performance goals and propellant characteristics, the team calculated rough geometries and motor characteristics.<br>
+          2. I created a decision matrix in MATLAB based on step 1.<br>
+          3. I worked with a peer to finalize propellant composition and the necessary thermodynamic and burn-rate properties.<br>
+          4. I built a target model, then modeled it in BurnSim 4.0 and compared it against OpenMotor.<br>
+          5. I modeled the design in SolidWorks, applied GD&T to the fitment, and 3D-printed the assembly to verify it.<br>
+          6. I finalized the manufacturing plan, drawings, and necessary equipment. I purchased items while keeping motor components under $80.<br>
+          7. I started manufacturing.<br>
         </p>
       </div>
 
       <div class="detail-block">
-        <h2 class="role-title">Motor Charecteristics</h2>
-        <p class="card-description"> 
-          Hand calculations for design were done as well as a decsision matrix, shown below. Our parameters were as follows:<br>
-          * Mass flux less than 1200 kg/m^2-sec<br>
-          * Minimum port to throat = 1.1<br>
-          * Chamber Port Mach less than 0.7<br>
-          Additionaly the plot shown shows the balance between Pressure, Mass Flux, and mass flow rate.<br>
+        <h2 class="role-title">Motor Characteristics</h2>
+        <p class="card-description">
+          Hand calculations were performed for the design, along with a decision matrix, shown below. Our parameters were as follows:<br>
+          - Mass flux less than 1200 kg/m^2-sec<br>
+          - Minimum port-to-throat ratio = 1.1<br>
+          - Chamber port Mach number less than 0.7<br>
+          Additionally, the plot shown illustrates the balance between pressure, mass flux, and mass flow rate.<br>
         </p>
         <div class="project-media">
-          <img src="../assets/MatrixMatlab_SRM_V1b.png" alt="Charecteristic Descision Matrix" />
+          <img src="../assets/MatrixMatlab_SRM_V1b.png" alt="Characteristic decision matrix" />
         </div>
         <div class="project-media">
-          <img src="../assets/P.G.m_BurnSim_SRM_V1b.png" alt="Charecteristic Plot" />
+          <img src="../assets/P.G.m_BurnSim_SRM_V1b.png" alt="Characteristic plot" />
         </div>
+
         <h2 class="role-title">Hardware</h2>
-        <p class="card-description"> 
-          Designed a two-part nozzle: an aluminum carrier with a phenolic insert retained by a thread design and the insert retained by snap-ring, a singular O-ring is used on the AFT closure for hot gasses, the phenolic insert is designed with a lip over the carrier to protect against hot gasses and allow a 2 piece nozzle.<br>
-
-          The FWD closure is made of a 6061 aluminum with a phenolic disk protecting it during combustion. It is designed with 2 O-rings, one that seals gasses from going behind the nozzle liner and another for redundancy.<br>
-
-          The insulation liner is an off the shelf phenolic liner from Aerotech. Chosen for simplicity and tradeoff advantage.<br>
-
-          Materials were chosen by there physical charecteristics and considered for ease of manufacturing. Although Graphite is typical it was not chosen based on price of manufacturing, some things that allowed us to make this descision are the conservative chamber pressure and designing the phenolic insert to be single use.<br>
-          
+        <p class="card-description">
+          I designed a two-part nozzle: an aluminum carrier with a phenolic insert retained by a thread design, with the insert retained by a snap ring. A single O-ring is used on the aft closure for hot gases. The phenolic insert is designed with a lip over the carrier to protect it against hot gases and allow a two-piece nozzle.<br>
+          <br>
+          The forward closure is made of 6061 aluminum, with a phenolic disk protecting it during combustion. It is designed with two O-rings: one that seals gases from going behind the nozzle liner and another for redundancy.<br>
+          <br>
+          The insulation liner is an off-the-shelf phenolic liner from Aerotech, chosen for simplicity and trade-off advantages.<br>
+          <br>
+          Materials were chosen based on their physical characteristics and considered for ease of manufacturing. Although graphite is typical, it was not chosen due to manufacturing cost. Factors that allowed us to make this decision included the conservative chamber pressure and the design of the phenolic insert for single use.<br>
         </p>
         <div class="project-media">
           <img src="../assets/SV_SRM_V1b.png" alt="Nozzle CAD model" />
         </div>
-        <h2 class="role-title">Motor Performance</h2>
-        <p class="card-description"> 
-          Final design led to:<br>
-          * Impulse = 274 N-s (this is 71% of the H class)<br>
-          * Delivered Impulse = 121 s<br>
-          * Burn Time 1.19 s<br>
-          * Average Thrust = 230 N (Peak = 321.8 N)<br>
-          Considerations: Given solid rocket motors of comparable size and high power propellant this is a very well performing engine. Goal was to model best performance for given restrictions, 500 psi, G less than or equal to 1.8. <br>
-          <br>
-          Comparison: BurnSim4.0 and OpenMotor<br>
-          More weight was put into the result of BurnSim as its physics solver is more accurate and refined. Additionally, more variabillity is allowed in BurnSim for timestep and erosive burning; the Lenoir Robillard erosive burn model was used for this motor because of its accuracy with low powered small motors. OpenMotor was used to confirm results and sensitivity.
-        </p>
-        <div class="project-media">
-          <img src="../assets/Thrust.Kn_BurnSim_SRM_V1b.png" alt="Thrust and Kn vs Time" />
-        </div>
-        <div class="project-media">
-          <img src="../assets/Plot_OpenMotor_SRM_V1b.png" alt="OpenMotor" />
-        </div>
-      </div>
 
-      <div class="detail-block">
-        <h2 class="role-title">Manufacturing &amp; Process Planning</h2>
+        <h2 class="role-title">Motor Performance</h2>
         <p class="card-description">
-          While the case and closure hardware was on order, I finalized the propellant mixing and casting process, including batch ratios and quality-control checks. The manufacturing plan called for 4 grains — 3 for the motor, 1 dedicated to quality testing. Case and closure manufacturing began once material arrived, before the project was paused.
+          The final design led to:<br>
+          - Impulse = 274 N-s (this is 71% of the H-class)<br>
+          - Specific impulse = 121 s<br>
+          - Burn time = 1.19 s<br>
+          - Average thrust = 230 N (peak = 321.8 N)<br>
+          Considerations: Given solid rocket motors of comparable size and high-power propellant, this is a very well-performing engine. The goal was to model the best performance for the given restrictions: 500 psi and G less than or equal to 1.8.<br>
+          <br>
+          <b>Comparison: BurnSim 4.0 and OpenMotor</b><br>
+          More weight was given to the results from BurnSim because its physics solver is more accurate and refined. Additionally, BurnSim allows more variability in timestep and erosive burning. The Lenoir-Robillard erosive-burn model was used for this motor because of its accuracy with low-power, small motors. OpenMotor was used to confirm results and assess sensitivity.
         </p>
         <div class="project-media">
-          <img src="../assets/srad-manufacturing.jpg" alt="Case and closure manufacturing" />
+          <img src="../assets/Thrust.Kn_BurnSim_SRM_V1b.png" alt="Thrust and Kn versus time" />
+        </div>
+        <div class="project-media">
+          <img src="../assets/Plot_OpenMotor_SRM_V1b.png" alt="OpenMotor results" />
         </div>
       </div>
 
       <div class="detail-block">
         <h2 class="role-title">Status</h2>
         <p class="card-description">
-          Design is complete and validated across multiple tools. Manufacturing is paused pending university review and will resume independently.
+          The design was modeled in BurnSim and cross-compared with OpenMotor.<br>
+          <br>
+          I am currently analyzing thermal stresses and modeling fluid dynamics in ANSYS. Next: submit the purchase order.
         </p>
       </div>
 
@@ -153,7 +148,7 @@
 
   <footer>
     <span>Collin Quirke.</span>
-    <span>Built in Github from scratch.</span>
+    <span>Built in GitHub from scratch.</span>
   </footer>
 
 </body>
