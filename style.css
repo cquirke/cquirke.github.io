@@ -331,8 +331,10 @@ section:last-of-type {
 
 .gallery-card {
   position: relative;
-  flex: 0 0 auto;
-  height: 380px;
+  flex: 0 0 auto !important;
+  width: auto !important;
+  height: 380px !important;
+  aspect-ratio: auto !important;
   scroll-snap-align: start;
   border-radius: var(--radius-md);
   overflow: hidden;
@@ -340,9 +342,9 @@ section:last-of-type {
 }
 
 .gallery-card img {
-  width: auto;
-  height: 100%;
-  object-fit: contain;
+  width: auto !important;
+  height: 100% !important;
+  object-fit: contain !important;
   display: block;
 }
 
@@ -370,7 +372,6 @@ section:last-of-type {
   color: var(--text-muted);
   line-height: 1.4;
 }
-
 /* ==========================================================================
    6. PROJECT ENTRIES (spec-sheet layout)
    ========================================================================== */
