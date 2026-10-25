@@ -5,6 +5,91 @@
   <meta name="viewport" content="width=device-width, initial-scale=1.0" />
   <title>L2 Certification Rocket | Collin Quirke</title>
   <link rel="stylesheet" href="../style.css" />
+
+  <!-- Styles for the new components on this page only. Uses currentColor and
+       translucent borders so it picks up your existing theme. Move into
+       style.css if you want to reuse it on other project pages. -->
+  <style>
+    .summary-strip {
+      display: grid;
+      grid-template-columns: repeat(auto-fit, minmax(150px, 1fr));
+      gap: 1rem;
+      margin: 1.5rem 0 0;
+    }
+    .summary-strip .stat {
+      border: 1px solid rgba(128, 128, 128, 0.35);
+      padding: 0.9rem 1rem;
+    }
+    .summary-strip .stat-num {
+      display: block;
+      font-size: 1.5rem;
+      font-weight: 700;
+      line-height: 1.2;
+    }
+    .summary-strip .stat-label {
+      display: block;
+      font-size: 0.85rem;
+      opacity: 0.75;
+      margin-top: 0.25rem;
+    }
+
+    .table-wrap { overflow-x: auto; margin-top: 1rem; }
+    .fail-table {
+      width: 100%;
+      border-collapse: collapse;
+      font-size: 0.95rem;
+    }
+    .fail-table th,
+    .fail-table td {
+      text-align: left;
+      vertical-align: top;
+      padding: 0.7rem 0.8rem;
+      border-bottom: 1px solid rgba(128, 128, 128, 0.35);
+    }
+    .fail-table th {
+      border-bottom-width: 2px;
+      font-weight: 700;
+    }
+
+    .phase-list, .test-list, .progress-log, .lessons-list {
+      margin: 0.75rem 0 0 1.25rem;
+      padding: 0;
+      line-height: 1.6;
+    }
+    .phase-list li, .test-list li, .lessons-list li { margin-bottom: 0.5rem; }
+
+    .progress-log { list-style: none; margin-left: 0; }
+    .progress-log li {
+      display: grid;
+      grid-template-columns: 7.5rem 1fr;
+      gap: 1rem;
+      padding: 0.6rem 0;
+      border-bottom: 1px solid rgba(128, 128, 128, 0.25);
+    }
+    .progress-log .log-date { font-weight: 700; opacity: 0.85; }
+    .progress-log .pending { opacity: 0.55; }
+
+    figure.project-media { margin: 1.25rem 0 0; }
+    figure.project-media img { max-width: 100%; height: auto; display: block; }
+    figure.project-media figcaption {
+      font-size: 0.88rem;
+      opacity: 0.8;
+      margin-top: 0.5rem;
+      line-height: 1.5;
+    }
+
+    .jump-links {
+      display: flex;
+      flex-wrap: wrap;
+      gap: 0.5rem 1.25rem;
+      margin-top: 1.25rem;
+      font-size: 0.9rem;
+    }
+
+    @media (max-width: 560px) {
+      .progress-log li { grid-template-columns: 1fr; gap: 0.15rem; }
+    }
+  </style>
 </head>
 <body>
 
@@ -12,7 +97,8 @@
     <a href="../index.html#top" class="nav-brand">COLLIN QUIRKE</a>
     <ul class="nav-links">
       <li><a href="../index.html#projects">&larr; Back to Projects</a></li>
-      <li><a href="../resume.pdf" target="_blank" class="btn-resume">Resume</a></li>
+      <!-- Matches the homepage resume file. Change if your filename differs. -->
+      <li><a href="../Collin_Quirke_ResumeGITHUB.pdf" target="_blank" class="btn-resume">Resume</a></li>
     </ul>
   </nav>
 
@@ -37,6 +123,10 @@
             <span class="vital-value">H550 (L1) / J425 (L2)</span>
           </div>
           <div class="vital">
+            <span class="vital-label">Airframe</span>
+            <span class="vital-value">4 in Blue Tube</span>
+          </div>
+          <div class="vital">
             <span class="vital-label">Recovery</span>
             <span class="vital-value">Dual-Deploy, Chute Release</span>
           </div>
@@ -49,6 +139,36 @@
             <span class="vital-value">Rebuilding — Adding Flight Computer</span>
           </div>
         </div>
+
+        <!-- 30-second layer: the whole story at a glance -->
+        <div class="summary-strip">
+          <div class="stat">
+            <span class="stat-num">2 flights</span>
+            <span class="stat-label">L1 clean, L2 failed in recovery</span>
+          </div>
+          <div class="stat">
+            <span class="stat-num">2 causes</span>
+            <span class="stat-label">Knot failure and ripcord zippering</span>
+          </div>
+          <div class="stat">
+            <span class="stat-num">~$20</span>
+            <span class="stat-label">Custom flight computer in design</span>
+          </div>
+          <div class="stat">
+            <span class="stat-num">6 weeks</span>
+            <span class="stat-label">Target to re-flight</span>
+          </div>
+        </div>
+
+        <div class="jump-links">
+          <a href="#flights">Flights</a>
+          <a href="#root-cause">Root cause</a>
+          <a href="#corrective-actions">Corrective actions</a>
+          <a href="#rebuild">Rebuild</a>
+          <a href="#flight-computer">Flight computer</a>
+          <a href="#testing">Testing plan</a>
+          <a href="#progress">Progress log</a>
+        </div>
       </div>
     </section>
 
@@ -57,7 +177,10 @@
       <div class="detail-block">
         <h2 class="role-title">Overview</h2>
         <p class="card-description">
-          Built and flew a minimal-diameter Blue Tube airframe rocket to certify both Level 1 and Level 2 with Tripoli, clearing the way to mix propellant and assemble the team's M2500 competition motor. The build used a 36" main parachute on a chute-release and ripcord dual-deploy setup, with no onboard avionics.
+          Built and flew a 4 inch diameter Blue Tube airframe rocket to certify both Level 1 and Level 2 with Tripoli, clearing the way to mix propellant and assemble the team's M2500 competition motor. The build used a 36" main parachute on a chute-release and ripcord dual-deploy setup, with no onboard avionics.
+        </p>
+        <p class="card-description">
+          The L2 flight did not recover cleanly, and having no electronics meant I had no data to explain why. This page documents what failed, why, and how I am fixing it: a structural rebuild, a ground-test campaign, and a custom flight computer so the re-flight produces measured data instead of guesses.
         </p>
       </div>
 
@@ -68,34 +191,166 @@
         </p>
       </div>
 
-      <div class="detail-block">
+      <div class="detail-block" id="flights">
         <h2 class="role-title">Certification Flights</h2>
         <p class="card-description">
-          <b>Level 1 — H550:</b> Flown to a planned 491m. Stability margin of 11.9%. Flight, deployment, and recovery all performed cleanly.
+          <b>Level 1 — H550:</b> Flown to a planned 491 m. Stability margin of 11.9%. Flight, deployment, and recovery all performed cleanly.
         </p>
         <p class="card-description">
-          <b>Level 2 — J425:</b> Flown to a planned 1013m. Stability margin of 9%. The rocket coned near apogee — most likely a combination of reduced stability margin at low velocity and wind gusts at the top of the flight — and then suffered a deployment failure: the upper and lower airframes fully separated when a recovery knot came undone, compounded by zippering along the ripcord path. With no onboard electronics and a difficult recovery area, the rocket wasn't recovered until a week later, by which point exposure to rain had warped the aft airframe.
+          <b>Level 2 — J425:</b> Flown to a planned 1013 m. Stability margin of 9%. The rocket coned near apogee — most likely a combination of reduced stability margin at low velocity and wind gusts at the top of the flight — and then suffered a deployment failure: the upper and lower airframes fully separated when a recovery knot came undone, compounded by zippering along the ripcord path. With no onboard electronics and a difficult recovery area, the rocket wasn't recovered until a week later, by which point exposure to rain had warped the aft airframe.
         </p>
-        <div class="project-media">
-          <img src="../assets/l2-flight-openrocket.jpg" alt="OpenRocket flight simulation" />
-        </div>
+        <figure class="project-media">
+          <img src="../assets/l2-flight-openrocket.jpg" alt="OpenRocket flight simulation of the L2 configuration" />
+          <figcaption>
+            OpenRocket simulation of the L2 (J425) flight. Shows the predicted trajectory and apogee used for planning. Measured data from the re-flight will be overlaid here for comparison.
+          </figcaption>
+        </figure>
       </div>
 
-      <div class="detail-block">
+      <div class="detail-block" id="root-cause">
         <h2 class="role-title">Root Cause Analysis</h2>
         <p class="card-description">
           The failure traced to two compounding issues rather than a motor or stability problem alone: an insecure recovery knot that allowed full separation, and ripcord zippering that likely followed the initial separation event. The lower stability margin on the L2 flight (9% vs. 11.9% on L1) plausibly contributed to the coning that preceded deployment, alongside wind conditions at apogee.
         </p>
+        <p class="card-description">
+          <b>What I can't say yet:</b> without onboard data, the order of events is inferred from the recovered hardware and the flight video. The re-flight data is meant to close that gap.
+        </p>
+      </div>
+
+      <div class="detail-block" id="corrective-actions">
+        <h2 class="role-title">Failure → Corrective Action</h2>
+        <div class="table-wrap">
+          <table class="fail-table">
+            <thead>
+              <tr>
+                <th>Failure</th>
+                <th>Likely cause</th>
+                <th>Corrective action</th>
+              </tr>
+            </thead>
+            <tbody>
+              <tr>
+                <td>Airframe separation</td>
+                <td>Recovery knot came undone</td>
+                <td>Replace the knot with a mechanical connection and pull-test it to failure</td>
+              </tr>
+              <tr>
+                <td>Ripcord zippering</td>
+                <td>Cord path loaded the tube after separation</td>
+                <td>Reroute the cord and protect the tube edge; add a lower coupler for structural margin</td>
+              </tr>
+              <tr>
+                <td>Coning near apogee</td>
+                <td>9% stability margin at low velocity plus wind gusts</td>
+                <td>Re-simulate the rebuilt configuration with gusts and increase the margin if needed</td>
+              </tr>
+              <tr>
+                <td>Week-long recovery, warped aft section</td>
+                <td>No tracking, difficult recovery area, rain exposure</td>
+                <td>Add a tracker and a data-logging flight computer</td>
+              </tr>
+              <tr>
+                <td>No data to diagnose the flight</td>
+                <td>No onboard avionics</td>
+                <td>Log altitude and acceleration on the re-flight, with a commercial altimeter as a cross-check</td>
+              </tr>
+            </tbody>
+          </table>
+        </div>
+      </div>
+
+      <div class="detail-block" id="rebuild">
+        <h2 class="role-title">Current Rebuild</h2>
+        <p class="card-description">
+          The aft airframe section is being replaced, with an additional coupler added lower in the airframe for structural margin against a repeat separation. The damaged section is being cut on a bandsaw. Before cutting, I measure the warp so there is a record of how far the tube deformed.
+        </p>
+        <figure class="project-media">
+          <img src="../assets/l2-rebuild.jpg" alt="Airframe rebuild in progress" />
+          <figcaption>
+            Rebuild in progress: damaged aft airframe being replaced. Before/after photos of the warped section and the new coupler fit will be added as the work is done.
+          </figcaption>
+        </figure>
+      </div>
+
+      <div class="detail-block" id="flight-computer">
+        <h2 class="role-title">Flight Computer</h2>
+        <p class="card-description">
+          I'm designing a low-cost (~$20) flight computer PCB, both to get real deployment and flight data on the re-flight and as my first electronics project. I'm staging it so each step is proven before the next adds risk:
+        </p>
+        <ol class="phase-list">
+          <li><b>Breadboard prototype.</b> Dev board, barometer, IMU, and flash or SD logging. Goal: logged altitude data plotted from a real test.</li>
+          <li><b>Custom PCB (data logger only).</b> The same circuit moved into KiCad, fabricated, and bring-up tested. A commercial altimeter or the existing setup stays primary for deployment.</li>
+          <li><b>Deployment channels (later revision).</b> Add continuity-sensed pyro outputs only after the logger has passed repeated ground tests.</li>
+        </ol>
+        <figure class="project-media">
+          <!-- Replace with your own screenshot, e.g. ../assets/l2-fc-schematic.png -->
+          <img src="../assets/l2-fc-schematic.png" alt="Flight computer schematic in KiCad" />
+          <figcaption>
+            Flight computer schematic and board layout (KiCad). Add the first logged altitude plot beside this when the prototype works.
+          </figcaption>
+        </figure>
+      </div>
+
+      <div class="detail-block" id="testing">
+        <h2 class="role-title">Verification Plan</h2>
+        <p class="card-description">
+          Before re-flight, each fix gets a test, not just a description:
+        </p>
+        <ul class="test-list">
+          <li><b>Recovery hardware:</b> pull-test knots and attachment points to failure and compare against the opening-shock load estimated for the 36" main.</li>
+          <li><b>Ejection charges:</b> size the charge from airframe volume and a pressure calculation, then ground-test the separation.</li>
+          <li><b>Flight computer:</b> pressure-change bench test (syringe or vacuum) and a swing test, with logged data plotted against expected values.</li>
+          <li><b>Stability:</b> re-run OpenRocket for the rebuilt configuration, including wind gusts and a Monte Carlo run, and adjust nose weight or fins if the margin is thin.</li>
+        </ul>
       </div>
 
       <div class="detail-block">
-        <h2 class="role-title">Current Rebuild</h2>
-        <p class="card-description">
-          The aft airframe section is being replaced, with an additional coupler added lower in the airframe for structural margin against a repeat separation. I'm also designing a low-cost (~$20) custom flight computer PCB — both to get real deployment and flight data on the re-flight, and as a hands-on entry point into electronics design. Targeting a re-flight within the next six weeks.
-        </p>
-        <div class="project-media">
-          <img src="../assets/l2-rebuild.jpg" alt="Airframe rebuild in progress" />
-        </div>
+        <h2 class="role-title">What I'd Do Differently</h2>
+        <ul class="lessons-list">
+          <li>Fly avionics from the start. A $20 logger would have turned a week of guessing into a data plot.</li>
+          <li>Treat recovery connections as load-bearing parts: test them and don't trust a knot.</li>
+          <li>Add tracking. A difficult recovery area and no tracker cost a week and damaged the airframe.</li>
+          <li>Check stability margin against low-velocity and gust conditions, not only the nominal flight.</li>
+        </ul>
+      </div>
+
+      <div class="detail-block" id="progress">
+        <h2 class="role-title">Progress Log</h2>
+        <!-- Replace the date placeholders as you go. Delete "pending" class when done. -->
+        <ul class="progress-log">
+          <li>
+            <span class="log-date">Done</span>
+            <span>L1 (H550) flown and recovered cleanly. Stability margin 11.9%.</span>
+          </li>
+          <li>
+            <span class="log-date">Done</span>
+            <span>L2 (J425) flown. Coning near apogee, recovery knot failure, ripcord zippering. Rocket recovered a week later with a warped aft section.</span>
+          </li>
+          <li>
+            <span class="log-date">Done</span>
+            <span>Root cause analysis written; rebuild started with a replacement aft section and added lower coupler.</span>
+          </li>
+          <li class="pending">
+            <span class="log-date">[date]</span>
+            <span>Warped section measured and cut on the bandsaw.</span>
+          </li>
+          <li class="pending">
+            <span class="log-date">[date]</span>
+            <span>Breadboard flight computer logging altitude data.</span>
+          </li>
+          <li class="pending">
+            <span class="log-date">[date]</span>
+            <span>Flight computer PCB ordered, received, and tested.</span>
+          </li>
+          <li class="pending">
+            <span class="log-date">[date]</span>
+            <span>Ground tests complete: knot pull test, ejection test, bench test.</span>
+          </li>
+          <li class="pending">
+            <span class="log-date">[date]</span>
+            <span>Re-flight, with measured data overlaid on the OpenRocket prediction.</span>
+          </li>
+        </ul>
       </div>
 
     </section>
