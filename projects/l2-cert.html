@@ -114,7 +114,7 @@
           <span class="tag">High-Power Rocketry</span>
           <span class="tag">Recovery Systems</span>
           <span class="tag">Failure Analysis</span>
-          <span class="tag">PCB Design</span>
+          <span class="tag">Flight Computer Design</span>
         </div>
 
         <div class="detail-specs">
@@ -200,9 +200,9 @@
           <b>Level 2 — J425:</b> Flown to a planned 1013 m. Stability margin of 9%. The rocket coned near apogee — most likely a combination of reduced stability margin at low velocity and wind gusts at the top of the flight — and then suffered a deployment failure: the upper and lower airframes fully separated when a recovery knot came undone, compounded by zippering along the ripcord path. With no onboard electronics and a difficult recovery area, the rocket wasn't recovered until a week later, by which point exposure to rain had warped the aft airframe.
         </p>
         <figure class="project-media">
-          <img src="../assets/l2-flight-openrocket.jpg" alt="OpenRocket flight simulation of the L2 configuration" />
+          <img src="../assets/OpenRocket_Plot.png" alt="OpenRocket flight simulation of the L2 configuration" />
           <figcaption>
-            OpenRocket simulation of the L2 (J425) flight. Shows the predicted trajectory and apogee used for planning. Measured data from the re-flight will be overlaid here for comparison.
+            OpenRocket simulation of the L2 (J425) flight. Shows the predicted flight charecteristics and apogee used for planning and recovery. 
           </figcaption>
         </figure>
       </div>
@@ -265,9 +265,9 @@
           The aft airframe section is being replaced, with an additional coupler added lower in the airframe for structural margin against a repeat separation. The damaged section is being cut on a bandsaw. Before cutting, I measure the warp so there is a record of how far the tube deformed.
         </p>
         <figure class="project-media">
-          <img src="../assets/l2-rebuild.jpg" alt="Airframe rebuild in progress" />
+          <img src="../assets/Airframe_Bandsaw.jpg" alt="Airframe rebuild in progress" />
           <figcaption>
-            Rebuild in progress: damaged aft airframe being replaced. Before/after photos of the warped section and the new coupler fit will be added as the work is done.
+            Rebuild in progress: damaged aft airframe being replaced. Splcing in new 4 inch airframe with a coupler.
           </figcaption>
         </figure>
       </div>
@@ -275,18 +275,18 @@
       <div class="detail-block" id="flight-computer">
         <h2 class="role-title">Flight Computer</h2>
         <p class="card-description">
-          I'm designing a low-cost (~$20) flight computer PCB, both to get real deployment and flight data on the re-flight and as my first electronics project. I'm staging it so each step is proven before the next adds risk:
+          I'm designing a low-cost (~$20) flight computer, both to get real deployment and flight data on the re-flight and as my first electronics project. I'm staging it so each step is proven before the next adds risk:
         </p>
         <ol class="phase-list">
           <li><b>Breadboard prototype.</b> Dev board, barometer, IMU, and flash or SD logging. Goal: logged altitude data plotted from a real test.</li>
-          <li><b>Custom PCB (data logger only).</b> The same circuit moved into KiCad, fabricated, and bring-up tested. A commercial altimeter or the existing setup stays primary for deployment.</li>
+          <li><b>Custom flight computer (data logger only).</b> The same circuit moved into KiCad, fabricated, and bring-up tested. A commercial altimeter or the existing setup stays primary for deployment.</li>
           <li><b>Deployment channels (later revision).</b> Add continuity-sensed pyro outputs only after the logger has passed repeated ground tests.</li>
         </ol>
         <figure class="project-media">
           <!-- Replace with your own screenshot, e.g. ../assets/l2-fc-schematic.png -->
           <img src="../assets/l2-fc-schematic.png" alt="Flight computer schematic in KiCad" />
           <figcaption>
-            Flight computer schematic and board layout (KiCad). Add the first logged altitude plot beside this when the prototype works.
+            Flight computer schematic and board layout. Addition to come early November.
           </figcaption>
         </figure>
       </div>
@@ -294,12 +294,11 @@
       <div class="detail-block" id="testing">
         <h2 class="role-title">Verification Plan</h2>
         <p class="card-description">
-          Before re-flight, each fix gets a test, not just a description:
         </p>
         <ul class="test-list">
           <li><b>Recovery hardware:</b> pull-test knots and attachment points to failure and compare against the opening-shock load estimated for the 36" main.</li>
           <li><b>Ejection charges:</b> size the charge from airframe volume and a pressure calculation, then ground-test the separation.</li>
-          <li><b>Flight computer:</b> pressure-change bench test (syringe or vacuum) and a swing test, with logged data plotted against expected values.</li>
+          <li><b>Flight computer:</b> pressure-change bench test (vacuum) and a swing test, with logged data plotted against expected values.</li>
           <li><b>Stability:</b> re-run OpenRocket for the rebuilt configuration, including wind gusts and a Monte Carlo run, and adjust nose weight or fins if the margin is thin.</li>
         </ul>
       </div>
@@ -307,7 +306,7 @@
       <div class="detail-block">
         <h2 class="role-title">What I'd Do Differently</h2>
         <ul class="lessons-list">
-          <li>Fly avionics from the start. A $20 logger would have turned a week of guessing into a data plot.</li>
+          <li>Fly avionics from the start. A $50 logger would have turned a week of guessing into a data plot.</li>
           <li>Treat recovery connections as load-bearing parts: test them and don't trust a knot.</li>
           <li>Add tracking. A difficult recovery area and no tracker cost a week and damaged the airframe.</li>
           <li>Check stability margin against low-velocity and gust conditions, not only the nominal flight.</li>
@@ -331,23 +330,23 @@
             <span>Root cause analysis written; rebuild started with a replacement aft section and added lower coupler.</span>
           </li>
           <li class="pending">
-            <span class="log-date">[date]</span>
+            <span class="log-date">Done</span>
             <span>Warped section measured and cut on the bandsaw.</span>
           </li>
           <li class="pending">
-            <span class="log-date">[date]</span>
+            <span class="log-date">Early November</span>
             <span>Breadboard flight computer logging altitude data.</span>
           </li>
           <li class="pending">
-            <span class="log-date">[date]</span>
+            <span class="log-date">Early November</span>
             <span>Flight computer PCB ordered, received, and tested.</span>
           </li>
           <li class="pending">
-            <span class="log-date">[date]</span>
+            <span class="log-date">Early November</span>
             <span>Ground tests complete: knot pull test, ejection test, bench test.</span>
           </li>
           <li class="pending">
-            <span class="log-date">[date]</span>
+            <span class="log-date">November 14th</span>
             <span>Re-flight, with measured data overlaid on the OpenRocket prediction.</span>
           </li>
         </ul>
